@@ -1,38 +1,46 @@
-RSpec.describe Post, type: :model do
-  subject { Post.create(title: 'My first post', author: User.new(name: 'Falcon')) }
+require 'rails_helper'
 
-  it 'the post should not have an empty title' do
+RSpec.describe Post, type: :model do
+  user = User.new(name: 'Anything',
+                  photo: 'http://localhost:3000/anything.jpg',
+                  bio: 'Anything test',
+                  postscounter: 0)
+  subject do
+    described_class.new(
+      title: 'Anything',
+      text: 'Anything test',
+      author: user,
+      commentscounter: 0,
+      likescounter: 0
+    )
+  end
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+  it 'is not valid without a title' do
     subject.title = nil
     expect(subject).to_not be_valid
   end
-
-  it 'the title should not exceed 250 characters' do
-    expect(subject).to be_valid
-    new_title = ''
-    251.times do
-      new_title.concat('T')
-    end
-    subject.title = new_title
+  it 'is not valid with a length for title  more than 250 ' do
+    title = ''
+    title += 'a' while title.length < 251
+    subject.title = title
     expect(subject).to_not be_valid
   end
-
-  it 'commentscounter should be bigger or equal than 0' do
-    expect(subject.commentscounter).to be >= 0
+  it 'it is not valid with negeative number for comment conuter' do
+    subject.commentscounter = -1
+    expect(subject).to_not be_valid
   end
-
-  it 'likescounter should be bigger or equal than 0' do
-    expect(subject.likescounter).to be >= 0
+  it 'it is not valid with string for comment conuter' do
+    subject.commentscounter = 'string'
+    expect(subject).to_not be_valid
   end
-
-  it 'postscounter should increase by one every time a post is created' do
-    expect(subject.author.postscounter).to be 1
-    Post.create(title: 'My second post', author: subject.author)
-    expect(subject.author.postscounter).to be 2
+  it 'it is not valid with negeative number for like conuter' do
+    subject.likescounter = -1
+    expect(subject).to_not be_valid
   end
-
-  context '#five_most_recent_posts' do
-    it 'should return at most 5 items' do
-      expect(subject.five_most_recent_posts.length).to be_between(0, 5)
-    end
+  it 'it is not valid with string for post conuter' do
+    subject.likescounter = 'string'
+    expect(subject).to_not be_valid
   end
 end

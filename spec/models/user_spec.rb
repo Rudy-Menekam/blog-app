@@ -1,22 +1,28 @@
+require 'rails_helper'
+
 RSpec.describe User, type: :model do
-  subject { User.new(name: 'Winkler') }
-
-  it 'should allow a name with at least one character' do
-    expect(subject).to be_valid
+  subject(:user) do
+    User.new(
+      name: 'Something',
+      photo: 'http://localhost:3000/something.jpg',
+      bio: 'Something test',
+      postscounter: 0
+    )
   end
 
-  it 'should not allow empty name' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  it 'is valid with valid attributes' do
+    expect(user).to be_valid
   end
-
-  it 'postscounter should be bigger or equal than 0' do
-    expect(subject.postscounter).to be >= 0
+  it 'is not valid without a name' do
+    user.name = nil
+    expect(user).to_not be_valid
   end
-
-  context '#most_recent_posts' do
-    it 'most_recent_posts should return at most three items' do
-      expect(subject.most_recent_posts.length).to be_between(0, 3)
-    end
+  it 'it is not valid with negeative number for post counter' do
+    user.postscounter = -1
+    expect(user).to_not be_valid
+  end
+  it 'it is not valid with string for post counter' do
+    user.postscounter = 'string'
+    expect(user).to_not be_valid
   end
 end
