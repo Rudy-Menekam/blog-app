@@ -1,1 +1,23 @@
 <h1>Post detail with comments</h1>
+<div class="post-detail">
+  <section class="post-ct">
+    <div class="post-header">
+      <h4>
+        <%= "#{@post.title} by #{@post.author.name}" %>
+      </h4>
+      <span>
+        Comments: <%= @post.commentscounter %>, Likes: <%=  @post.likescounter %>
+      </span>
+    </div>
+    <%= @post.text %>
+  </section>
+  <section class="comments">
+    <% if  !@post.comments.empty?%>
+    <div class ="post_detail_comment">
+     <% @post.comments.each do |comment| %>
+       <%= render 'shared/comment', comment:comment %>
+       <% end %>
+  </div>
+    <%end%>
+  </section>
+</div>
