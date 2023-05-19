@@ -13,3 +13,101 @@
  *= require_tree .
  *= require_self
  */
+
+.user-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.info {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #504d4d;
+  border-radius: 1px;
+  background-color: #fff;
+}
+
+.user_card_image {
+  background-color: #eee;
+  display: flex;
+  width: 13%;
+  margin-left: 20px;
+  border: 1px solid #504d4d;
+  border-radius: 1px;
+  box-shadow: 0 0 5px #ccc;
+  margin-right: 2%;
+  min-width: 100px;
+  height: 120px;
+}
+
+.bio {
+  border: 1px solid #000;
+  margin: 1em 0;
+  padding: 5px;
+  width: 97.5%;
+}
+
+.user_post {
+  display: flex;
+  flex-direction: column;
+  width: 98.5%;
+}
+
+.post_card {
+  border: 1px solid #504d4d;
+  border-radius: 1px;
+  background-color: #fff;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.post_card > h4 > a:hover {
+  color: darkcyan;
+}
+
+.post_card > p {
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.button_holder {
+  padding-top: 25px;
+}
+
+.post_comment {
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+.post_detail {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.post_detail_comment {
+  display: flex;
+  flex-direction: column;
+  width: 97%;
+  border: 1px solid #504d4d;
+  border-radius: 1px;
+  padding: 10px;
+}
+
+.post-ct {
+  width: 98.5%;
+  border: 1px solid #504d4d;
+  border-radius: 1px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

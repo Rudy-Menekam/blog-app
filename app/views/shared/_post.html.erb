@@ -1,0 +1,12 @@
+
+<div class="post_card">
+  <% if post.present? && @user.present? %>
+    <h4>
+      <%= link_to "Post ##{post.id}", "/users/#{@user.id}/posts/#{post.id}" %>
+    </h4>
+    <p><%= post.title %></p>
+    <p class="post_counter"><span>comments: <%= post.commentscounter %></span></p>
+  <% else %>
+    <!-- Handle the case when post or @user is nil -->
+  <% end %>
+</div>
