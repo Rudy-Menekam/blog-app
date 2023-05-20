@@ -2,22 +2,32 @@
 <div class="post-detail">
   <section class="post-ct">
     <div class="post-header">
-      <h4>
-        <%= "#{@post.title} by #{@post.author.name}" %>
-      </h4>
-      <span>
-        Comments: <%= @post.commentscounter %>, Likes: <%=  @post.likescounter %>
-      </span>
+       <p class ="post_title_card"> Post # <%=@post.id%> by <%=@post.author.name%></p>
+       <p>Comments: <%=@post.commentscounter%> Likes: <%=@post.likescounter%></p>
     </div>
     <%= @post.text %>
   </section>
   <section class="comments">
     <% if  !@post.comments.empty?%>
-    <div class ="post_detail_comment">
-     <% @post.comments.each do |comment| %>
-       <%= render 'shared/comment', comment:comment %>
-       <% end %>
-  </div>
+   <div class="post_detail_comment">
+   <% if @post.comments.present? %>
+    <% @post.comments.each do |comment| %>
+      <%= render 'shared/comment', comment: comment %>
+    <% end %>
+  <% end %>
+</div>
     <%end%>
   </section>
+   <div class="comment_like_holder">
+
+     <div class= "comment_form_holder">
+       <h3>Leave a comment</h3>
+      <%= render 'comments/form', comment: @comment %>
+      </div>
+
+       <div class="like_form_holder">
+        <h3>Like this post</h3>
+        <%= render 'likes/form', like: @like %>
+        </div>
+      </div>
 </div>
