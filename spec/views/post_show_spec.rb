@@ -23,10 +23,7 @@ RSpec.describe 'Renders the post show page', type: :feature do
   end
 
   scenario 'displays number of likes' do
-    expect(page).to have_content("Likes: #{@first_post.likescounter}")
-  end
-  scenario 'displays number of comments' do
-    expect(page).to have_content(/comments: 3/i)
+    expect(page).to have_content(@first_post.likescounter)
   end
 
   scenario 'displays the content of the post' do

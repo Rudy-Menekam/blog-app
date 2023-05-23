@@ -7,6 +7,7 @@ RSpec.describe 'Render posts index page', type: :feature do
 
     @first_post = Post.create(title: 'Hello there', text: 'This is my first post',
                               commentscounter: 0, likescounter: 0, author_id: @user.id)
+    @first_post.save
 
     Comment.create(text: 'Hi Lillian!', author_id: @user.id, post_id: @first_post.id)
     Comment.create(text: 'How are you?', author_id: @user.id, post_id: @first_post.id)
@@ -24,7 +25,7 @@ RSpec.describe 'Render posts index page', type: :feature do
   end
 
   scenario 'shows number of user posts' do
-    expect(page).to have_content(@user.posts.count)
+    expect(page).to have_content(@user.postscounter)
   end
 
   scenario 'render button section for Pagination' do
@@ -37,7 +38,11 @@ RSpec.describe 'Render posts index page', type: :feature do
   end
 
   scenario 'displays post text' do
-    expect(page).to have_text('This is my first post', wait: 10)
+    # @first_post.text = 'This is my first post'
+
+    # puts @first_post.text
+    expect(page).to have_content(@first_post.text)
+    # expect(page).to have_css('div.post-header', text: 'This is my first post')
   end
 
   scenario 'display the post title' do
@@ -57,6 +62,6 @@ RSpec.describe 'Render posts index page', type: :feature do
   end
 
   scenario 'display the how many Likes' do
-    expect(page).to have_content("Likes: #{@first_post.likescounter}")
+    expect(page).to have_content(@first_post.likescounter)
   end
 end

@@ -47,6 +47,13 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Track blog posts]**
+- **[Write SQL queries with Active Record]**
+- **[Use validations for models]**
+- **[Write unit tests for models]**
+- **[Write request tests for models]**
+- **[Set up the view model]**
+- **[Use preprocessed HTML file with embedded Ruby code.]**
+- **[Use layouts and templates for shared content.]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -82,7 +89,6 @@ Example command:
 ### Setup
 
 Clone this repository to your desired folder:
-
 
 Example commands:
 
@@ -146,13 +152,19 @@ Example:
 
 <!-- AUTHORS -->
 
-## 👥 Author <a name="author"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Rudy Menekam**
 
 - GitHub: [@githubhandle](https://github.com/Rudy-Menekam)
 - Twitter: [@twitterhandle](https://twitter.com/MenekamR)
 - LinkedIn: [linkedIn](https://www.linkedin.com/in/menekam-rudy/)
+
+👤 **Kigozi Joseph*
+
+- GitHub: [Zeph180](https://github.com/zeph180)
+- Twitter: [@richards_zeph](https://twitter.com/richards_zeph)
+- LinkedIn: [Kigozi Joseph Suubi](https://www.linkedin.com/in/kigozi-joseph-suubi)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

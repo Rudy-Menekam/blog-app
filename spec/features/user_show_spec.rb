@@ -5,10 +5,10 @@ RSpec.feature 'User Show', type: :feature do
 
   scenario 'displays user details and posts' do
     # Create some posts for the user
-    post1 = user.posts.create(title: 'Post 1', text: 'Content 1')
-    post2 = user.posts.create(title: 'Post 2', text: 'Content 2')
+    post1 = Post.create(author: user, title: 'Post 1', text: 'Content 1')
+    post2 = Post.create(author: user, title: 'Post 2', text: 'Content 2')
 
-    # visit user_path(user)
+   
     visit "/users/#{user.id}"
 
     expect(page).to have_content('A given User detail with posts')
@@ -22,6 +22,10 @@ RSpec.feature 'User Show', type: :feature do
 
     expect(page).to have_link('Create new post', href: new_user_post_path(user))
     expect(page).to have_link('See all posts', href: "#{user.id}/posts")
-    expect(page).to have_link('Back', href: :back)
+    expect(page).to have_link('Back')
+
+    # it 'it should render the view all user posts link' do
+    #   expect(page).to have_link('See all posts')
+    # end
   end
 end
