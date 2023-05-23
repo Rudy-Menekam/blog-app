@@ -5,7 +5,9 @@
       <%= link_to "Post ##{post.id}", "/users/#{@user.id}/posts/#{post.id}" %>
     </h4>
     <p><%= post.title %></p>
+    <p> <%= truncate(post.text, :length => 150) %> </p>
     <p class="post_counter"><span>comments: <%= post.commentscounter %></span></p>
+    <p class="post_counter"><span>Likes: <%= post.likescounter %></span></p>
   <% else %>
     <!-- Handle the case when post or @user is nil -->
   <% end %>
