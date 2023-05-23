@@ -38,11 +38,7 @@ RSpec.describe 'Render posts index page', type: :feature do
   end
 
   scenario 'displays post text' do
-    # @first_post.text = 'This is my first post'
-
-    # puts @first_post.text
     expect(page).to have_content(@first_post.text)
-    # expect(page).to have_css('div.post-header', text: 'This is my first post')
   end
 
   scenario 'display the post title' do
