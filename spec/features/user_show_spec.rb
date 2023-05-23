@@ -10,7 +10,6 @@ RSpec.feature 'User Show', type: :feature do
 
     # visit user_path(user)
     visit "/users/#{user.id}"
-    
 
     expect(page).to have_content('A given User detail with posts')
     expect(page).to have_content(user.name)

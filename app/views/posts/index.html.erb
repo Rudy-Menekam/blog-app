@@ -1,11 +1,11 @@
 <h1>list of posts for a given user </h1>
 <%= render 'users/user', user:@user%>
  <div class="post_list">
-   <% @posts.each do |post| %>
+   <% @posts.includes(:comments).each do |post| %>
    <%= render 'shared/post', post:post %>
      <% if !post.five_most_recent_posts.empty? %>
          <div class ="post_comment">
-     <%post.five_most_recent_posts.each do |comment| %>
+     <%post.five_most_recent_posts.includes(:author).each do |comment| %>
           <%= render 'shared/comment', comment:comment %>
        <% end %>
         </div>

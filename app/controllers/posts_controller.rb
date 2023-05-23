@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   protect_from_forgery prepend: true
   def index
     @user = User.find(params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
   def show
