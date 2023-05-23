@@ -8,7 +8,6 @@ RSpec.feature 'User Show', type: :feature do
     post1 = Post.create(author: user, title: 'Post 1', text: 'Content 1')
     post2 = Post.create(author: user, title: 'Post 2', text: 'Content 2')
 
-   
     visit "/users/#{user.id}"
 
     expect(page).to have_content('A given User detail with posts')
