@@ -1,2 +1,10 @@
 <h1>List of users </h1>
+<div class="sign_out_button">
+  <button>
+    <%= link_to 'Sign out',  destroy_user_session_path, method: :delete %>
+  </button>
+</div>
 <%= render @users %>
+<button>
+<%= link_to 'Create new post', new_user_post_path(current_user)%>
+</button>
