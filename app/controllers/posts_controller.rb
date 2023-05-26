@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   protect_from_forgery prepend: true
   def index
     @user = User.find(params[:user_id])
@@ -21,6 +22,13 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path(@user)
   end
 
   private
