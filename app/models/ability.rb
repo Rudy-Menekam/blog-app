@@ -7,7 +7,7 @@ class Ability
     can :read, :all
     can :create, [Comment, Post]
 
-    if user.role == 'admin'
+    if user.admin?
       can :manage, :all
     else
       can :destroy, Comment, author: user
