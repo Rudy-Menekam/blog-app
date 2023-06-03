@@ -32,6 +32,7 @@ gem 'rspec-rails'
 
 gem 'cancancan'
 gem 'devise'
+gem 'pg', '~> 1.5', '>= 1.5.3'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
